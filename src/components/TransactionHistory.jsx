@@ -1,5 +1,5 @@
 
-import "./TransactionHistory.module.css";
+import trans from"./TransactionHistory.module.css";
 
 const TransactionHistory = ({ items }) => {
   if (!Array.isArray(items) || items.length === 0) {
@@ -7,7 +7,7 @@ const TransactionHistory = ({ items }) => {
     return null; 
   }
   return (
-    <table>
+    <table className={trans.tablet}>
       <thead>
         <tr>
           <th>Type</th>
