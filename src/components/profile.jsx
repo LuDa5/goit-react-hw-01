@@ -1,18 +1,22 @@
-import PropTypes from "prop-types";
-import "./profile.module.css";
 
+import stails from  "./profile.module.css";
 
-const Profile = ({ name, tag, location, image, stats }) => {
+ const Profile = ({ name, tag, location, image, stats }) => {
+  if (!name || !tag || !location || !image || !stats) {
+    console.error("Missing required props in Profile component!");
+    return null;
+  }
+
   return (
-    <div>
-      <div>
-        <img src={image} alt="User avatar" />
+    <div className={stails.container}>
+      <div className={stails.cart}>
+        <img src={image} alt={`${name}'s avatar`} width="120" />
         <p>{name}</p>
         <p>@{tag}</p>
         <p>{location}</p>
       </div>
 
-      <ul>
+      <ul className={stails.list}>
         <li>
           <span>Followers: </span>
           <span>{stats.followers}</span>
@@ -28,18 +32,6 @@ const Profile = ({ name, tag, location, image, stats }) => {
       </ul>
     </div>
   );
-};
-
-Profile.propTypes = {
-  name: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  stats: PropTypes.shape({
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default Profile;

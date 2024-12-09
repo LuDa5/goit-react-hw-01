@@ -1,5 +1,30 @@
-img {
-    width: 320px;
-    height: 240px;
+.container {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+   box-shadow: 2px 2px 6px 6px rgb(201, 211, 213);
+flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+      
 }
-   
+.cart {
+padding: 30px;
+display: block;
+text-align: center;
+    margin: 0;
+}
+
+.list {
+    box-shadow: 1px 1px 3px 3px rgb(222, 213, 213);
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 6px;
+list-style: none;
+margin: 0;
+}
+p {
+    padding: 0;
+    margin: 0;
+}

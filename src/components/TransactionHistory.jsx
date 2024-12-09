@@ -1,8 +1,11 @@
-import PropTypes from "prop-types";
+
 import "./TransactionHistory.module.css";
 
-
 const TransactionHistory = ({ items }) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    // console.error("TransactionHistory: отриманий некоректний або порожній масив транзакцій.");
+    return null; 
+  }
   return (
     <table>
       <thead>
@@ -25,15 +28,5 @@ const TransactionHistory = ({ items }) => {
   );
 };
 
-TransactionHistory.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
-
 export default TransactionHistory;
+
